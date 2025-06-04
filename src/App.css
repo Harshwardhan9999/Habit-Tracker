@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.profile-image {
+  @apply rounded-4xl m-4 h-12 w-12;
+}
+
+.form-label {
+  @apply mt-3;
+}
+
+.form-input {
+  @apply border text-xl px-3 py-1 rounded;
+}
