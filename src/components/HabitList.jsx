@@ -1,12 +1,15 @@
 import React from 'react'
+import Habit from './Habit';
 
-const HabitList = () => {
-    let habits = ["Habit 1", "Habit 2", "Habit 3"];
+const HabitList = ({habits}) => {
+    
   return (
-    <ul className='mt-3 w-[360px]'>
-        {habits.map((habit, index) => <li key={index}>{habit}</li>)}
+    <ul className="mt-3 w-[360px] h-[80vh] overflow-auto">
+      {habits.map((habit, index) => (
+        <Habit habitName={habit.name} description={habit.description} key={index} />
+      ))}
     </ul>
-  )
+  );
 }
 
 export default HabitList

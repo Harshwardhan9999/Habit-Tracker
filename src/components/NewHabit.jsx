@@ -1,14 +1,23 @@
 import { useState } from "react";
 
-const NewHabit = () => {
+const NewHabit = ({addHabit}) => {
+   
     const [habitName, setHabitName] = useState('');
     const [description, setDescription] = useState('');
+  
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Habit Added: ", habitName, description);
-        setDescription('');
-        setHabitName('');
+      e.preventDefault();
+      console.log("Habit Added: ", habitName, description);
+      const newHabit = {
+        name: habitName,
+        description: description,
+        id: Date.now()
+      }
+      setHabitName('');
+      setDescription('');
+      addHabit(newHabit);
+      console.log(habitName);
     }
 
   return (
@@ -42,3 +51,4 @@ const NewHabit = () => {
 };
 
 export default NewHabit;
+
