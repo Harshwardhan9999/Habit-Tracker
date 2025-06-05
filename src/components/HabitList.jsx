@@ -1,12 +1,13 @@
 import React from 'react'
 import Habit from './Habit';
 
-const HabitList = ({habits}) => {
+const HabitList = ({habits, toggleComplete}) => {
     
   return (
     <ul className="mt-3 w-[360px] h-[80vh] overflow-auto">
-      {habits.map((habit, index) => (
-        <Habit habitName={habit.name} description={habit.description} key={index} />
+      {habits.length > 0 && <h1 className='text-2xl mt-1'>Habits</h1>}
+      {habits.filter(h => !h.isCompleted).map((habit) => (
+        <Habit habit={habit} key={habit.id} toggleComplete={toggleComplete}/>
       ))}
     </ul>
   );

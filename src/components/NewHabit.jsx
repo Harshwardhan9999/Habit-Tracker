@@ -12,7 +12,8 @@ const NewHabit = ({addHabit}) => {
       const newHabit = {
         name: habitName,
         description: description,
-        id: Date.now()
+        id: Date.now(),
+        isCompleted: false
       }
       setHabitName('');
       setDescription('');
@@ -22,7 +23,7 @@ const NewHabit = ({addHabit}) => {
 
   return (
     <>
-      <form className="flex flex-col w-[360px] p-3" onSubmit={handleSubmit}>
+      <form className="flex m-0 flex-col w-[360px] p-3" onSubmit={handleSubmit}>
         <label className="form-label" htmlFor="habitName">
           Name
         </label>
@@ -39,7 +40,7 @@ const NewHabit = ({addHabit}) => {
         id="description" className="form-input" type="text" name="description" />
         <button type="submit"
         className="
-        bg-[#393D3F] rounded border-2 mt-3 text-amber-50
+        bg-[#393D3F] rounded border-2 mt-6 text-amber-50
         px-3 py-1 hover:bg-[#111111]
         ">
           add
