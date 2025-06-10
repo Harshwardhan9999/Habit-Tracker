@@ -5,9 +5,9 @@
 }
 
 .form-label {
-  @apply mt-3;
+  /* @apply ; */
 }
 
 .form-input {
-  @apply border text-xl px-3 py-1 rounded;
+  @apply border text-xl px-3 py-1 mb-3 rounded;
 }
