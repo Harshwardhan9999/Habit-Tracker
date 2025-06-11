@@ -65,16 +65,17 @@ function App() {
           deleteHabit={deleteHabit}
         />
       </div>
-      <div className="flex justify-center border items-center min-h-[70vh]">
-        {viewedHabit && (
+      {viewedHabit && (
+        <div className="fixed inset-0 flex justify-around items-center z-50 backdrop-blur-sm  bg-[rgba(0,0,0,0.2)]">
           <HabitCard
             id={viewedHabit.id}
             saveCard={saveCard}
             HabitName={viewedHabit.name}
             Description={viewedHabit.description}
+            onCancel={() => setViewedHabit(null)}
           />
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

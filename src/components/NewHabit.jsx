@@ -27,7 +27,7 @@ const NewHabit = ({addHabit}) => {
         className="flex m-0 flex-col w-[360px] p-3 mt-0"
         onSubmit={handleSubmit}
       >
-      <h1 className="text-2xl mb-2">Add new habit</h1>
+      <h1 className="text-xl font-normal mb-2">Add new habit</h1>
         <label className="form-label" htmlFor="habitName">
           Name
         </label>
@@ -53,8 +53,8 @@ const NewHabit = ({addHabit}) => {
         <button
           type="submit"
           className="
-        bg-[#393D3F] rounded border-2 mt-3 text-amber-50
-        px-3 py-1 hover:bg-[#111111]
+        bg-[#393D3F] rounded border-1 mt-3 text-amber-50
+        px-3 py-1 hover:bg-[#111111] w-full
         "
         >
           add

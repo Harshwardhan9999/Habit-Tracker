@@ -20,7 +20,7 @@ const Habit = ({habit, toggleComplete, deleteHabit, viewHabit}) => {
   }
 
   return (
-    <div onClick={viewH} className="w-[360px] cursor-pointer relative flex items-center border h-fit mb-2 rounded-xl pr-3 py-1 list-none">
+    <div className="w-[360px] cursor-pointer relative flex items-center border h-fit mb-2 rounded-xl pr-3 py-1 list-none">
       <button onClick={toggle}>
         <TiTick
           size={"1.5rem"}
@@ -28,11 +28,11 @@ const Habit = ({habit, toggleComplete, deleteHabit, viewHabit}) => {
           className="m-3 border-2 rounded-3xl cursor-pointer"
         />
       </button>
-      <div>
+      <div onClick={viewH} className='w-full'>
         <h2 className="text-xl">{habit.name}</h2>
         <p className="leading-4 mt-1 ">{habit.description}</p>
       </div>
-      <button onClick={deleteH} className='absolute right-0'>
+      <button onClick={deleteH} className="absolute w-[48px] right-0">
         <MdDeleteForever
           size={"1.5rem"}
           color="#393D3F"
