@@ -1,11 +1,14 @@
 
 import { Stack, Button, Input, Field } from '@chakra-ui/react';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
 
 const HabitCard = ({id, HabitName, Description, saveCard, onCancel}) => {
+
+  const toastUpdated = () => toast("📝 Habit updated");
 
     const [habitName, setHabitName] = useState(HabitName);
     const [description, setDescription] = useState(Description);
@@ -15,6 +18,7 @@ const HabitCard = ({id, HabitName, Description, saveCard, onCancel}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       saveCard(id, habitName, description);
+      toastUpdated();
     }
 
 

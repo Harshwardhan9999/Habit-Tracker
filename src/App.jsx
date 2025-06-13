@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import NewHabit from "./components/NewHabit";
 import { useEffect, useState } from "react";
 import CompletedHabitList from "./components/CompletedHabitList";
+// import { motion } from "framer-motion";
 
 function App() {
   const [habit, setHabit] = useState(() => {
@@ -48,7 +49,7 @@ function App() {
   // console.log(viewHabit);
 
   return (
-    <>
+    <div className="bg-[#f7f7f]">
       <Header />
       <div className="flex gap-2">
         <NewHabit addHabit={addHabit} />
@@ -67,6 +68,7 @@ function App() {
       </div>
       {viewedHabit && (
         <div className="fixed inset-0 flex justify-around items-center z-50 backdrop-blur-sm  bg-[rgba(0,0,0,0.2)]">
+          
           <HabitCard
             id={viewedHabit.id}
             saveCard={saveCard}
@@ -74,9 +76,21 @@ function App() {
             Description={viewedHabit.description}
             onCancel={() => setViewedHabit(null)}
           />
+          {/* <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+        >
+          <HabitCard
+            id={viewedHabit.id}
+            saveCard={saveCard}
+            HabitName={viewedHabit.name}
+            Description={viewedHabit.description}
+            onCancel={() => setViewedHabit(null)}/>
+        </motion.div> */}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

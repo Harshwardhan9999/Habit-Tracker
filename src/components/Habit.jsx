@@ -2,13 +2,42 @@ import React from 'react'
 import { Children } from 'react';
 import { TiTick } from "react-icons/ti";
 import { MdDeleteForever } from "react-icons/md";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 
 
 const Habit = ({habit, toggleComplete, deleteHabit, viewHabit}) => {
 
+  const toastCompleted = () =>
+    toast.success("Habit marked completed", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+
+  // 
+  const toastDelete = () =>
+    toast.error("Habit deleted", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+
   const toggle = () => {
     toggleComplete(habit.id);
+    !habit.isCompleted && toastCompleted();
   };
 
   const viewH = () => {
@@ -17,6 +46,7 @@ const Habit = ({habit, toggleComplete, deleteHabit, viewHabit}) => {
 
   const deleteH = () => {
     deleteHabit(habit.id);
+    toastDelete();
   }
 
   return (

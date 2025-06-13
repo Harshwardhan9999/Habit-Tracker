@@ -1,10 +1,25 @@
 import { useState } from "react";
+import { toast, ToastContainer, Bounce } from "react-toastify";
 
 const NewHabit = ({addHabit}) => {
+
+  const toastAdded = () =>
+    toast.info("Habit added", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
    
     const [habitName, setHabitName] = useState('');
     const [description, setDescription] = useState('');
   
+    
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -23,6 +38,7 @@ const NewHabit = ({addHabit}) => {
 
   return (
     <>
+    <ToastContainer newestOnTop={true} position="top-right"/>
       <form
         className="flex m-0 flex-col w-[360px] p-3 mt-0"
         onSubmit={handleSubmit}
@@ -52,6 +68,7 @@ const NewHabit = ({addHabit}) => {
         />
         <button
           type="submit"
+          onClick={toastAdded}
           className="
         bg-[#393D3F] rounded border-1 mt-3 text-amber-50
         px-3 py-1 hover:bg-[#111111] w-full
