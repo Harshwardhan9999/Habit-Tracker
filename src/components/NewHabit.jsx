@@ -28,7 +28,8 @@ const NewHabit = ({addHabit}) => {
         name: habitName,
         description: description,
         id: Date.now(),
-        isCompleted: false
+        isCompleted: false,
+        completedDates: []
       }
       setHabitName('');
       setDescription('');

@@ -39,10 +39,24 @@ function App() {
   };
 
   const toggleComplete = (id) => {
+    const today = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
+
     setHabit(
-      habit.map((habit) =>
-        habit.id === id ? { ...habit, isCompleted: !habit.isCompleted } : habit
-      )
+      habit.map((h) => {
+        if (h.id !== id) return h;
+
+        const hasCompletedToday = h.completedDates?.includes(today);
+
+        const updatedDates = hasCompletedToday
+          ? h.completedDates.filter((date) => date !== today)
+          : [...(h.completedDates || []), today];
+
+        return {
+          ...h,
+          completedDates: updatedDates,
+          isCompleted: !hasCompletedToday,
+        };
+      })
     );
   };
 

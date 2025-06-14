@@ -2,6 +2,7 @@
 import { Stack, Button, Input, Field } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 
 
@@ -20,6 +21,21 @@ const HabitCard = ({id, HabitName, Description, saveCard, onCancel}) => {
       saveCard(id, habitName, description);
       toastUpdated();
     }
+
+    useEffect(() => {
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onCancel();
+        else if (e.key === 'Enter') {
+          e.preventDefault();
+          saveCard(id, habitName, description);
+        }
+      }
+      window.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }, [onCancel, saveCard, description, habitName, id]);
 
 
   return (
