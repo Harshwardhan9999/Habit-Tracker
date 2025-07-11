@@ -75,7 +75,7 @@ const Habit = ({habit, toggleComplete, deleteHabit, viewHabit}) => {
       <div onClick={viewH} className='w-full'>
         <div className="flex gap-3 items-center">
           <h2 className="text-xl">{habit.name}</h2>
-          <p>Streak: {getStreak()}</p>
+          <p className='text-xs'>Streak: {getStreak()}</p>
         </div>
         <p className="leading-4 mt-1 ">{habit.description}</p>
       </div>

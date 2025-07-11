@@ -6,6 +6,7 @@ import NewHabit from "./components/NewHabit";
 import { useEffect, useState } from "react";
 import CompletedHabitList from "./components/CompletedHabitList";
 // import { motion } from "framer-motion";
+import VerticalCalendar from "./components/VerticalCalendar";
 
 function App() {
   const [habit, setHabit] = useState(() => {
@@ -63,9 +64,10 @@ function App() {
   // console.log(viewHabit);
 
   return (
-    <div className="bg-[#f7f7f]">
+    <div className="bg-[#f7f7f] overflow-y-auto overflow-hidden max-h-screen overscroll-contain">
       <Header />
       <div className="flex gap-2">
+        <VerticalCalendar />
         <NewHabit addHabit={addHabit} />
         <HabitList
           viewHabit={viewHabit}
@@ -82,7 +84,6 @@ function App() {
       </div>
       {viewedHabit && (
         <div className="fixed inset-0 flex justify-around items-center z-50 backdrop-blur-sm  bg-[rgba(0,0,0,0.2)]">
-          
           <HabitCard
             id={viewedHabit.id}
             saveCard={saveCard}
