@@ -1,4 +1,5 @@
 import React from 'react'
+import LogoutButton from "./../LogoutButton";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
         src="../../public/images/2324000719.png"
         alt="profile image of user"
       />
+      <LogoutButton/>
     </div>
   );
 }

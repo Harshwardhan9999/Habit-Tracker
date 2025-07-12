@@ -5,10 +5,15 @@ import Header from "./components/Header";
 import NewHabit from "./components/NewHabit";
 import { useEffect, useState } from "react";
 import CompletedHabitList from "./components/CompletedHabitList";
-// import { motion } from "framer-motion";
+import { useAuth } from "./context/AuthProvider"
+import Login from "./Login"
 import VerticalCalendar from "./components/VerticalCalendar";
+import React from "react";
 
 function App() {
+
+  const { user } = useAuth();
+
   const [habit, setHabit] = useState(() => {
     const storedHabits = localStorage.getItem("habits");
     return storedHabits ? JSON.parse(storedHabits) : [];
@@ -62,6 +67,8 @@ function App() {
   };
 
   // console.log(viewHabit);
+
+  if (!user) return <Login/>
 
   return (
     <div className="bg-[#f7f7f] overflow-y-auto overflow-hidden max-h-screen overscroll-contain">

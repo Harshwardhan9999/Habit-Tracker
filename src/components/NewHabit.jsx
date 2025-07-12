@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast, ToastContainer, Bounce } from "react-toastify";
+import React from "react";
 
 const NewHabit = ({addHabit}) => {
 
