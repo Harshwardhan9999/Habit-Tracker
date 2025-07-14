@@ -1,15 +1,19 @@
-import mysql from 'mysql2';
+/* eslint-disable no-undef */
+const mysql = require("mysql2");
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'habit_tracker'
+const pool = mysql.createPool({
+    host: "localhost",
+    user: "root",
+    password: "MDaemon@9L",
+    database: "habit_tracker_db",
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 })
 
-connection.connect((err) => {
-    if (err) throw err;
-    console.log("Connected to MySQL...");
-});
+// connection.connect((error) => {
+//     if (error) throw error;
+//     console.log("Connected to MySql...")
+// })
 
-export default connection;
+module.exports = pool;

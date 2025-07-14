@@ -53,7 +53,7 @@ function Login() {
               className="form-input"
               type="email"
               name="email"
-              required
+              // required
               placeholder="Email"
             />
           </div>
@@ -64,8 +64,8 @@ function Login() {
               className="form-input"
               type="password"
               name="password"
-              required
-              minLength={6}
+              // required
+              // minLength={6}
               placeholder="Password: 6-64 Characters"
             />
           </div>
